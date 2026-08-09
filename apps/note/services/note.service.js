@@ -51,9 +51,18 @@ function save(note) {
         return storageService.post(NOTE_KEY, note)
     }
 }
-
-function getEmptyNote(type = 'NoteTxt',isPinned = false,style = { backgroundColor: '#00d' },info = { txt: '' }) {
-    return { type, isPinned, style, info }
+function getEmptyNote(txt = '') {
+    return {
+        createdAt: Date.now(),
+        type: 'NoteTxt',
+        isPinned: false,
+        style: {
+            backgroundColor: '#ffffff'
+        },
+        info: {
+            txt
+        }
+    }
 }
 
 function getDefaultFilter(filterBy = { txt: ''}) {
