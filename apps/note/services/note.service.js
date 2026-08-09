@@ -25,7 +25,7 @@ function query(filterBy = {}) {
         .then(notes => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(note => regExp.test(note.title))
+                notes = notes.filter(note => regExp.test(note.info.txt))
             }
 
             return notes
@@ -52,9 +52,8 @@ function save(note) {
     }
 }
 
-function getEmptyNote(txt = '',) {
-    return { txt} 
-    
+function getEmptyNote(type = 'NoteTxt',isPinned = false,style = { backgroundColor: '#00d' },info = { txt: '' }) {
+    return { type, isPinned, style, info }
 }
 
 function getDefaultFilter(filterBy = { txt: ''}) {
@@ -140,10 +139,12 @@ function _createNotes() {
     } 
   } 
 ] 
-            notes.push(_createNote(vendor, utilService.getRandomIntInclusive(80, 300)))
+    
         }
+
         utilService.saveToStorage(NOTE_KEY, notes)
-    }  
+    } 
+ 
 
 function _createNote(title, content) {
     const note = getEmptyNote(title, content)
@@ -162,21 +163,21 @@ function _setNextPrevNoteId(note) {
     })
 }
 
-function _getNoteCountBySpeedMap(notes) {
-    const noteCountBySpeedMap = notes.reduce((map, note) => {
-        if (note.maxSpeed < 120) map.slow++
-        else if (note.maxSpeed < 200) map.normal++
-        else map.fast++
-        return map
-    }, { slow: 0, normal: 0, fast: 0 })
-    return noteCountBySpeedMap
-}
+// function _getNoteCountBySpeedMap(notes) {
+//     const noteCountBySpeedMap = notes.reduce((map, note) => {
+//         if (note.maxSpeed < 120) map.slow++
+//         else if (note.maxSpeed < 200) map.normal++
+//         else map.fast++
+//         return map
+//     }, { slow: 0, normal: 0, fast: 0 })
+//     return noteCountBySpeedMap
+// }
 
-function _getNoteCountByVendorMap(notes) {
-    const noteCountByVendorMap = notes.reduce((map, note) => {
-        if (!map[note.vendor]) map[note.vendor] = 0
-        map[note.vendor]++
-        return map
-    }, {})
-    return noteCountByVendorMap
-}
+// function _getNoteCountByVendorMap(notes) {
+//     const noteCountByVendorMap = notes.reduce((map, note) => {
+//         if (!map[note.vendor]) map[note.vendor] = 0
+//         map[note.vendor]++
+//         return map
+//     }, {})
+//     return noteCountByVendorMap
+// }
