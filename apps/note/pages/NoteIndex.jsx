@@ -1,6 +1,9 @@
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
 
+
+import { NoteList } from '../cmps/NoteList.jsx'
+
 import { utilService } from '../../../services/util.service.js'
 import { useEffectUpdate } from '../custom-hooks/useEffectUpdate.js'
 import { noteService } from '../services/note.service.js'
@@ -43,9 +46,15 @@ export function NoteIndex() {
   if (!notes)
     return (
       <div className="loader">
-        <img src="/assets/loader.gif" alt="Loading..." />
+        <img src="./assets/css/img/loader.svg" alt="A loader." /> //need to put real loader
       </div>
     )
 
-  return <section className="container">Notes app</section>
+  return <section className="mail-index">
+    <React.Fragment>
+        <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+    </React.Fragment>
+  
+  
+  </section>
 }
