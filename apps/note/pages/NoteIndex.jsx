@@ -1,3 +1,10 @@
+const { useState, useEffect } = React
+const { Link, useSearchParams } = ReactRouterDOM
+
+import { utilService } from '../../../services/util.service.js'
+import { useEffectUpdate } from '../custom-hooks/useEffectUpdate.js'
+import { noteService } from '../services/note.service.js'
+import { showErrorMsg, showSuccessMsg } from '../../../services/event-bus.service.js'
 export function NoteIndex() {
   const [notes, setNotes] = useState(null)
 
@@ -10,7 +17,7 @@ export function NoteIndex() {
     loadNotes(filterBy)
   }, [])
 
-  useeffectUpdate(() => {
+  useEffectUpdate(() => {
     loadNotes(filterBy)
     setSearchParams(noteService.trimObj(filterBy))
   }, [filterBy])
@@ -30,7 +37,7 @@ export function NoteIndex() {
   }
 
   function onClearFilter() {
-    setFilterBy(carService.getDefaultFilter())
+    setFilterBy(noteService.getDefaultFilter())
   }
 
   if (!notes)
