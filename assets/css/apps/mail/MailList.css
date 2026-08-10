@@ -1,1 +1,81 @@
- /* mail list */
+ul.mail-list {
+    list-style-type: none;
+    padding-inline-start: var(--width-side-filter-mail);
+    background-color: white;
+    margin-top: 2em;
+}
+
+.mail-list {
+    max-height: 70vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.mail-li.read {
+    background-color: var(--crl-mail-read);
+    font-weight: normal;
+}
+
+li.mail-li {
+    display: grid;
+    grid-template-columns: 2.5em 1fr 5em;
+    align-items: center;
+    align-content: center;
+    min-height: 3em;
+    position: relative;
+}
+
+.mail-list li {
+    background-color: inherit;
+    box-shadow: rgba(100, 121, 143, 0.12) 0px -1px 0px 0px inset;
+}
+
+.mail-li {
+    font-size: 16px;
+    background-color: white;
+    font-weight: bold;
+}
+
+.star-btn {
+    grid-column: 1;
+    justify-self: center;
+    background-color: inherit;
+    border: 0px;
+    width: 2.3em;
+    height: 2em;
+    border-radius: 3em;
+    transition: 200ms;
+}
+
+.mail-date {
+    position: absolute;
+    right: 0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mail-icons {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    height: 2lh;
+    position: absolute;
+    right: 0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+}
+
+.mail-li:hover .mail-icons {
+    display: flex;
+}
+
+.mail-li:hover .mail-date {
+    visibility: hidden;
+}
+
+.mail-li a {
+    display: block;
+    width: 100%;
+}

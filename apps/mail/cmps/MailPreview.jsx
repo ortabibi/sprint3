@@ -4,7 +4,9 @@ import { LongTxt } from '../cmps/LongTxt.jsx'
 
 export function MailPreview({ mail }) {
     return <React.Fragment>
-        <button className="star-btn">...</button>
+        <button className="star-btn">
+            <img src="./assets/css/img/favorite.png" alt="" />
+        </button>
         <Link to={`/mail/${mail.id}`}>
             <div className={`mail-preview ${mail.isRead ? 'read' : ''}`}>
                 <div className="mail-from">{mail.from}</div>
@@ -17,10 +19,10 @@ export function MailPreview({ mail }) {
         </Link>
         <div className="mail-icons">
             <button type="button" className="trash">
-                <img src="" alt="delete" />
+                <img src="./assets/css/img/recycle-bin.png" alt="delete" />
             </button>
             <button type="button" className="read">
-                <img src="" alt="delete" />
+                <img src="./assets/css/img/email.png" alt="delete" />
             </button>
         </div>
     </React.Fragment>

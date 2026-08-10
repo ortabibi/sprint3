@@ -38,13 +38,13 @@ function _createMails() {
     if (!mails || !mails.length) {
 
         mails = []
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 10; i++) {
             const mail = {
                 id: utilService.makeId(),
                 createdAt: 1551133930500,
                 subject: 'Miss you!',
                 body: 'Would love to catch up sometimes',
-                isRead: false,
+                isRead: Math.random() > 0.5,
                 sentAt: 1551133930594,
                 removedAt: null,
                 from: 'momo@momo.com',

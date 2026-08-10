@@ -1,0 +1,56 @@
+.mail-icons img {
+    width: 1.2em;
+}
+
+.mail-preview.read {
+    background-color: inherit;
+}
+
+.mail-preview {
+    display: grid;
+    grid-template-columns: 1fr 1em 7fr 1em 1fr;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px rgba(100, 121, 143, 0.12) solid;
+    box-shadow: rgba(100, 121, 143, 0.12) 0px -1px 0px 0px inset;
+    padding-inline-start: 1em;
+    cursor: pointer;
+}
+
+.mail-from {
+    grid-column: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.mail-data {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    overflow-x: hidden;
+    height: 3em;
+    white-space: nowrap;
+    grid-column: 3;
+    min-width: 0;
+}
+
+.mail-subject {
+    color: var(--clr-mail-font-black);
+    flex-shrink: 0;
+}
+
+.mail-data :nth-child(2) {
+    color: var(--clr-mail-font-gray);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mail-data p {
+    margin: 0;
+}
+
+.mail-date {
+    grid-column: 5;
+    justify-self: end;
+}
