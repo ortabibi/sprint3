@@ -1,9 +1,8 @@
 const { useState, useEffect } = React
 const { Link, useSearchParams } = ReactRouterDOM
 
-
 import { NoteList } from '../cmps/NoteList.jsx'
-
+import { NoteFilter } from '../cmps/NoteFilter.jsx'
 import { utilService } from '../../../services/util.service.js'
 import { useEffectUpdate } from '../custom-hooks/useEffectUpdate.js'
 import { noteService } from '../services/note.service.js'
@@ -52,6 +51,8 @@ export function NoteIndex() {
 
   return <section className="mail-index">
     <React.Fragment>
+				<NoteFilter filterBy={filterBy} onSetFilterBy={setFilterBy} onClearFilter={onClearFilter} />
+
         <NoteList notes={notes} onRemoveNote={onRemoveNote} />
     </React.Fragment>
   
