@@ -1,6 +1,5 @@
 // note service
 import { utilService } from '../../../services/util.service.js'
-
 import { storageService } from '../../../services/async-storage.service.js'
 
 
@@ -17,6 +16,7 @@ export const noteService = {
     // getSpeedStats,
     // getVendorStats,
     getFilterFromSearchParams,
+    trimObj: utilService.trimObj,
 }
 // For Debug (easy access from console):
 // window.cs = noteService
@@ -26,9 +26,12 @@ function query(filterBy = {}) {
         .then(notes => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(note => regExp.test(note.info.txt))
+                notes = notes.filter(note => {
+                    const txt = note.info.txt || ''
+                    const title = note.info.title || ''
+                    return regExp.test(txt) || regExp.test(title)
+                })
             }
-
             return notes
         })
 }
@@ -106,7 +109,7 @@ function getFilterFromSearchParams(searchParams) {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
-        const notes = [ 
+        notes = [ 
   { 
     id: 'n101', 
     createdAt: 1112222, 
@@ -148,11 +151,10 @@ function _createNotes() {
       ] 
     } 
   } 
-] 
-    
+]     
+utilService.saveToStorage(NOTE_KEY, notes)
         }
 
-        utilService.saveToStorage(NOTE_KEY, notes)
     } 
  
 
