@@ -20,6 +20,9 @@ function query(filterBy = {}) {
                 const regExp = new RegExp(filterBy.txt, 'i')
                 mails = mails.filter(mail => regExp.test(mail.from) || regExp.test(mail.subject))
             }
+            if (filterBy.isRead !== undefined && filterBy.isRead !== '') {
+                mails = mails.filter(mail => mail.isRead === filterBy.isRead)
+            }
 
             return mails
         })
@@ -72,3 +75,27 @@ function getDefaultFilter() {
         lables: []
     }
 }
+
+// function query(filterBy = {}) {
+//     return storageService.query(MAIL_KEY)
+//         .then(mails => {
+//             if (filterBy.status === 'trash') {
+//                 mails = mails.filter(mail => !!mail.removedAt)
+//             } else if (filterBy.status === 'draft') {
+//                 mails = mails.filter(mail => !mail.sentAt)
+//             } else if (filterBy.status === 'inbox' || filterBy.status === 'sent' || !filterBy.status) {
+//                 mails = mails.filter(mail => !mail.removedAt)
+//             }
+
+//             if (filterBy.txt) {
+//                 const regExp = new RegExp(filterBy.txt, 'i')
+//                 mails = mails.filter(mail => regExp.test(mail.from) || regExp.test(mail.subject))
+//             }
+
+//             if (filterBy.isRead !== undefined && filterBy.isRead !== '') {
+//                 mails = mails.filter(mail => mail.isRead === filterBy.isRead)
+//             }
+
+//             return mails
+//         })
+// }
