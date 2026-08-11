@@ -27,7 +27,7 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
             </div>
             <div className="search-bar">
                 <button type="button" className="search-btn">
-                    <img src="./assets/css/img/search.png" alt="search" />
+                    <i className="fa fa-search"></i>
                 </button>
                 <input
                     onChange={handleChange}

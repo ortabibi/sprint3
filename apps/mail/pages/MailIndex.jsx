@@ -7,6 +7,7 @@ import { utilService } from '../../../services/util.service.js'
 import { MailList } from '../cmps/MailList.jsx'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { useEffectUpdate } from '../../../custom-hooks/useEffectUpdate.js'
+import { MailFolderList } from '../cmps/MailFolderList.jsx'
 
 
 
@@ -23,7 +24,7 @@ export function MailIndex() {
 
     useEffectUpdate(() => {
         loadMails(filterBy)
-        setSearchParams(utilService.trimObj(filterBy))
+        setSearchParams(utilService.trimObjOr(filterBy))
     }, [filterBy])
 
 
@@ -31,6 +32,9 @@ export function MailIndex() {
         mailService.query(filterBy).then(setMails)
     }
 
+    function onSetStatus(status) {
+        setFilterBy(prev => ({ ...prev, status }))
+    }
 
     if (!mails)
         return (
@@ -50,6 +54,9 @@ export function MailIndex() {
                 </Link> */}
 
                 <MailList mails={mails} />
+
+                <MailFolderList filterByStatus={filterBy.status} onSetStatus={onSetStatus} />
+
             </React.Fragment>
         </div>
     )

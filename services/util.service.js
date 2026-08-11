@@ -8,7 +8,7 @@ export const utilService = {
     getMonthName,
     loadFromStorage,
     saveToStorage,
-    trimObj,
+    trimObjOr,
 }
 
 function saveToStorage(key, val) {
@@ -71,4 +71,15 @@ function getMonthName(date) {
         "July", "August", "September", "October", "November", "December"
     ]
     return monthNames[date.getMonth()]
+}
+
+function trimObjOr(obj) {
+    const trimmedObj = {}
+
+    for (const key in obj) {
+        if (obj[key] !== '' && obj[key] !== null && obj[key] !== undefined) {
+            trimmedObj[key] = obj[key]
+        }
+    }
+    return trimmedObj
 }
