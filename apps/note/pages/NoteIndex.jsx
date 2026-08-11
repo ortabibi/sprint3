@@ -3,8 +3,10 @@ const { Link, useSearchParams } = ReactRouterDOM
 
 import { NoteList } from "../cmps/NoteList.jsx"
 import { NoteFilter } from "../cmps/NoteFilter.jsx"
+import {NoteAdd} from "../cmps/NoteAdd.jsx"
 import { utilService } from "../../../services/util.service.js"
 import { useEffectUpdate } from "../custom-hooks/useEffectUpdate.js"
+
 import { noteService } from "../services/note.service.js"
 import {  showErrorMsg,  showSuccessMsg,} from "../../../services/event-bus.service.js"
 export function NoteIndex() {
@@ -45,6 +47,15 @@ export function NoteIndex() {
     })
     .catch((err) => showErrorMsg(`Cannot update ${savedNote.id}`))
   }
+  function onAddNote(newNote) {
+    noteService
+      .save(newNote)
+        .then((savedNote) => {
+          setNotes((prevNotes) => [savedNote, ...prevNotes])
+          showSuccessMsg(`Note ${savedNote.id} added`)
+        })
+        .catch((err) => showErrorMsg(`Cannot add note`))
+  }
   function onDuplicateNote(noteId) {
     noteService
       .duplicate(noteId)
@@ -67,7 +78,7 @@ export function NoteIndex() {
     )
 
   return (
-    <section className="mail-index">
+    <section className="note-index">
       <React.Fragment>
         <NoteFilter
           filterBy={filterBy}
@@ -75,6 +86,8 @@ export function NoteIndex() {
           onClearFilter={onClearFilter}
         />
 
+<NoteAdd onAddNote={onAddNote}/>
+    
         <NoteList 
         notes={notes}
         onRemoveNote={onRemoveNote}
