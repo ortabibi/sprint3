@@ -11,6 +11,7 @@ export const noteService = {
     get,
     remove,
     save,
+    duplicate,
     getEmptyNote,
     getDefaultFilter,
     // getSpeedStats,
@@ -47,7 +48,13 @@ function get(noteId) {
 function remove(noteId) {
     return storageService.remove(NOTE_KEY, noteId)
 }
-
+function duplicate(noteId) {
+    return storageService.get(NOTE_KEY, noteId)
+    .then(note => {
+        const duplicateNote ={...note, createdAt: Date.now()}
+        return storageService.post(NOTE_KEY, duplicateNote)
+    }) 
+}
 function save(note) {
     if (note.id) {
         return storageService.put(NOTE_KEY, note)

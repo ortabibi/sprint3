@@ -45,6 +45,15 @@ export function NoteIndex() {
     })
     .catch((err) => showErrorMsg(`Cannot update ${savedNote.id}`))
   }
+  function onDuplicateNote(noteId) {
+    noteService
+      .duplicate(noteId)
+      .then((duplicatedNote) => {
+        setNotes((prevNotes) => [duplicatedNote, ...prevNotes])
+        showSuccessMsg(`Note ${duplicatedNote.id} duplicated`)
+      })
+      .catch((err) => showErrorMsg(`Cannot duplicate ${noteId}`))
+  }
 
   function onClearFilter() {
     setFilterBy(noteService.getDefaultFilter())
@@ -70,6 +79,7 @@ export function NoteIndex() {
         notes={notes}
         onRemoveNote={onRemoveNote}
         onUpdateNote={onUpdateNote}
+        onDuplicateNote={onDuplicateNote}
          />
       </React.Fragment>
     </section>

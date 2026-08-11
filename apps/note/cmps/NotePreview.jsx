@@ -4,7 +4,7 @@ import { LongTxt } from "../cmps/LongTxt.jsx"
 
 import { NoteToolsBar } from "../cmps/NoteToolsBar.jsx"
 
-export function NotePreview({ note, onRemoveNote, onUpdateNote, }) {
+export function NotePreview({ note, onRemoveNote, onUpdateNote,onCloseModal,onDuplicateNote }) {
   const { info, style, isPinned } = note
   const { title, txt, url } = info
   return (
@@ -23,6 +23,7 @@ export function NotePreview({ note, onRemoveNote, onUpdateNote, }) {
             note={note}
             onRemoveNote={onRemoveNote}
             onUpdateNote={onUpdateNote}
+            onDuplicateNote={onDuplicateNote}
           />
         }
       </article>

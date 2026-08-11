@@ -2,7 +2,7 @@ const { useState } = React
 
 import { NoteEditModal } from "../cmps/NoteEditModal.jsx"
 
-export function NoteToolsBar({ note, onRemoveNote, onUpdateNote }) {
+export function NoteToolsBar({ note, onRemoveNote, onUpdateNote, onDuplicateNote }) {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   return (
     <section className="note-tools-bar">
@@ -17,7 +17,7 @@ export function NoteToolsBar({ note, onRemoveNote, onUpdateNote }) {
         <i className="fa-solid fa-thumbtack"></i>
       </button>
 
-  <button className="note-tools-btn">
+  <button className="note-tools-btn" onClick={() => onDuplicateNote(note.id)}>
         <i className="fa-solid fa-clone"></i>
       </button>
 
