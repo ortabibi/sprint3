@@ -17,6 +17,14 @@ export function NoteToolsBar({ note, onRemoveNote, onUpdateNote }) {
         <i className="fa-solid fa-thumbtack"></i>
       </button>
 
+  <button className="note-tools-btn">
+        <i className="fa-solid fa-clone"></i>
+      </button>
+
+  <button className="note-tools-btn">
+        <i className="fa-solid fa-envelope"></i>
+      </button>
+
         <button className="note-tools-btn" onClick={() => setIsEditModalOpen(true)}>
         <i className="fa-solid fa-pen-to-square"></i>
       </button>

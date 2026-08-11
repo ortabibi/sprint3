@@ -6,10 +6,7 @@ import { NoteFilter } from "../cmps/NoteFilter.jsx"
 import { utilService } from "../../../services/util.service.js"
 import { useEffectUpdate } from "../custom-hooks/useEffectUpdate.js"
 import { noteService } from "../services/note.service.js"
-import {
-  showErrorMsg,
-  showSuccessMsg,
-} from "../../../services/event-bus.service.js"
+import {  showErrorMsg,  showSuccessMsg,} from "../../../services/event-bus.service.js"
 export function NoteIndex() {
   const [notes, setNotes] = useState(null)
 

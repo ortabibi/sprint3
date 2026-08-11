@@ -9,6 +9,7 @@ export const utilService = {
     loadFromStorage,
     saveToStorage,
     trimObjOr,
+    trimObj,
 }
 
 function saveToStorage(key, val) {
@@ -80,6 +81,15 @@ function trimObjOr(obj) {
         if (obj[key] !== '' && obj[key] !== null && obj[key] !== undefined) {
             trimmedObj[key] = obj[key]
         }
+    }
+    return trimmedObj
+}
+// will need to change afte trimObjOr to trimObj
+function trimObj(obj) {
+    const trimmedObj = {}
+
+    for (const key in obj) {
+        if (obj[key]) trimmedObj[key] = obj[key]
     }
     return trimmedObj
 }
