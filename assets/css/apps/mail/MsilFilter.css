@@ -1,0 +1,98 @@
+.top-filter {
+    display: grid;
+    align-items: center;
+    padding: 0.5em 1em;
+    background-color: white;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.gmail-logo {
+    display: flex;
+    align-items: center;
+    width: 2.5em;
+    height: 2.5em;
+    flex-shrink: 0;
+}
+
+.gmail-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 45em;
+    background-color: var(--crl-mail-search-bar);
+    border-radius: 2em;
+    padding: 0.4em 1em;
+    gap: 0.8em;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.search-btn img {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.text-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1em;
+    color: var(--clr-mail-font-black);
+}
+
+.date-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.date-btn img {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.read-tabs {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    background-color: white;
+    padding: 0 1em;
+}
+
+.read-tabs button {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    border: 0px;
+    background-color: white;
+    padding: 1em 0.5em;
+    cursor: pointer;
+    font-size: 1em;
+    color: var(--clr-mail-font-gray);
+    border-bottom: 3px solid transparent;
+}
+
+.read-tabs button.active {
+    border-bottom: 3px solid #0B57D0;
+    color: #0B57D0;
+}

@@ -9,10 +9,8 @@ export const mailService = {
     // remove,
     // save,
     // getEmptyCar,
-    // getDefaultFilter,
-    // getSpeedStats,
-    // getVendorStats,
-    // getFilterFromSearchParams,
+    getDefaultFilter,
+    getFilterFromSearchParams,
 }
 
 function query(filterBy = {}) {
@@ -20,11 +18,7 @@ function query(filterBy = {}) {
         .then(mails => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                mails = mails.filter(mail => regExp.test(mail.vendor))
-            }
-
-            if (filterBy.minSpeed) {
-                mails = mails.filter(mail => mail.maxSpeed >= filterBy.minSpeed)
+                mails = mails.filter(mail => regExp.test(mail.from) || regExp.test(mail.subject))
             }
 
             return mails
@@ -34,7 +28,6 @@ function query(filterBy = {}) {
 function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
 
-    const ctgs = ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
     if (!mails || !mails.length) {
 
         mails = []
@@ -59,3 +52,23 @@ function _createMails() {
     console.log('mails', mails)
 }
 
+function getFilterFromSearchParams(searchParams) {
+    const defaultFilter = getDefaultFilter()
+    const filterBy = {}
+
+    for (const field in defaultFilter) {
+        filterBy[field] = searchParams.get(field) || ''
+    }
+    return filterBy
+}
+
+
+function getDefaultFilter() {
+    return {
+        status: '',
+        txt: '',
+        isRead: '',
+        isStared: '',
+        lables: []
+    }
+}
