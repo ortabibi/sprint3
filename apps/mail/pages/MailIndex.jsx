@@ -5,20 +5,30 @@ const { Link, useSearchParams } = ReactRouterDOM
 import { mailService } from '../services/mail.service.js'
 import { utilService } from '../../../services/util.service.js'
 import { MailList } from '../cmps/MailList.jsx'
+import { MailFilter } from '../cmps/MailFilter.jsx'
+import { useEffectUpdate } from '../../../custom-hooks/useEffectUpdate.js'
+
 
 
 export function MailIndex() {
-    console.log('MailIndex rendered')   // add this line
-
     const [mails, setMails] = useState(null)
+
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
 
 
     useEffect(() => {
         loadMails(mails)
     }, [])
 
+    useEffectUpdate(() => {
+        loadMails(filterBy)
+        setSearchParams(utilService.trimObj(filterBy))
+    }, [filterBy])
+
+
     function loadMails() {
-        mailService.query({}).then(setMails)
+        mailService.query(filterBy).then(setMails)
     }
 
 
@@ -33,7 +43,7 @@ export function MailIndex() {
     return (
         <div className="mail-index">
             <React.Fragment>
-                {/* <CarFilter filterBy={filterBy} onSetFilterBy={setFilterBy} onClearFilter={onClearFilter} /> */}
+                <MailFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
 
                 {/* <Link to="/car/edit">
                     <button>Add a Car</button>
