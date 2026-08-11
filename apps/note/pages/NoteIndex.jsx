@@ -56,8 +56,7 @@ export function NoteIndex() {
   if (!notes)
     return (
       <div className="loader">
-        <img src="./assets/css/img/loader.svg" alt="A loader." /> //need to put
-        real loader
+        <img src="./assets/css/img/loader.svg" alt="A loader." /> 
       </div>
     )
 
