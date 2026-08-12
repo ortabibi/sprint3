@@ -12,4 +12,6 @@
 @import './apps/mail/MailPreview.css';
 @import './apps/mail/MailList.css';
 @import './apps/mail/LongTxt.css';
-@import './apps/mail/MsilFilter.css';
+@import './apps/mail/MailFilter.css';
+@import './apps/mail/side-filter.css';
+@import './apps/mail/ReadTabs.css';
