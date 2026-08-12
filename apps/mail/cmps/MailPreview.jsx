@@ -5,7 +5,7 @@ import { LongTxt } from '../cmps/LongTxt.jsx'
 export function MailPreview({ mail }) {
     return <React.Fragment>
         <button className="star-btn">
-            <img src="./assets/css/img/favorite.png" alt="" />
+            <img src="./assets/css/img/star.png" alt="" />
         </button>
         <Link to={`/mail/${mail.id}`}>
             <div className={`mail-preview ${mail.isRead ? 'read' : ''}`}>

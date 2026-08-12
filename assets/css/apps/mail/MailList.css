@@ -1,8 +1,12 @@
+.mail-list-container {
+    grid-column: 2;
+}
+
 ul.mail-list {
     list-style-type: none;
-    padding-inline-start: var(--width-side-filter-mail);
     background-color: white;
     margin-top: 2em;
+    padding: 0;
 }
 
 .mail-list {
