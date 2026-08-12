@@ -1,46 +1,49 @@
-export function MailFolderList({ filterByStatus , onSetStatus}) {
+export function MailFolderList({ filterByStatus, onSetStatus }) {
 
+    function getIconStyle(status) {
+        return filterByStatus === status ? 'fa-solid' : 'fa-regular'
+    }
 
     return <section className="side-filter">
         <button className="mail-compose-btn">
             <section className="mail-compose-btn-container">
-                <img src="" alt="" />
-                <span></span>
+                <i className="fa-solid fa-pen"></i>
+                <span>Compose</span>
             </section>
         </button>
         <button className={filterByStatus === 'inbox' ? 'selected-side-filter' : ''}
-            onClick={ () => onSetStatus('inbox')}>
+            onClick={() => onSetStatus('inbox')}>
             <section>
-                <img src="" alt="" />
+                <span className="material-symbols-outlined">inbox</span>
                 <span>inbox</span>
             </section>
             <span>12</span>
         </button>
         <button className={filterByStatus === 'starred' ? 'selected-side-filter' : ''}
-            onClick={() => onSetStatus('starred') }>
+            onClick={() => onSetStatus('starred')}>
             <section>
-                <img src="" alt="" />
+                <span className="material-symbols-outlined">star</span>
                 <span>starred</span>
             </section>
         </button>
         <button className={filterByStatus === 'sent' ? 'selected-side-filter' : ''}
-            onClick={ () => onSetStatus('sent')}>
+            onClick={() => onSetStatus('sent')}>
             <section>
-                <img src="" alt="" />
+                <span className="material-symbols-outlined">send</span>
                 <span>sent</span>
             </section>
         </button>
         <button className={filterByStatus === 'drafts' ? 'selected-side-filter' : ''}
-            onClick={ () => onSetStatus('drafts')}>
+            onClick={() => onSetStatus('drafts')}>
             <section>
-                <img src="" alt="" />
+                <span className="material-symbols-outlined">draft</span>
                 <span>drafts</span>
             </section>
         </button>
         <button className={filterByStatus === 'trash' ? 'selected-side-filter' : ''}
-            onClick={ () => onSetStatus('trash')}>
+            onClick={() => onSetStatus('trash')}>
             <section>
-                <img src="" alt="" />
+                <span className="material-symbols-outlined">delete</span>
                 <span>trash</span>
             </section>
         </button>

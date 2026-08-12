@@ -1,0 +1,86 @@
+.side-filter {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--crl-mail-bg);
+    font-family: 'roboto-medium';
+}
+
+.side-filter button {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    border: 0px;
+    border-radius: 0 3em 3em 0;
+    background-color: inherit;
+    color: #202124;
+    margin-inline-end: 1em;
+    cursor: pointer;
+}
+
+.side-filter>*>section {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin-inline-start: 2em;
+    gap: 0.8em;
+}
+
+.side-filter i {
+    width: 1.3em;
+    text-align: center;
+    color: #202124;
+}
+
+.side-filter i.icon-hover {
+    display: none;
+}
+
+.side-filter button:hover i.icon-default {
+    display: none;
+}
+
+.side-filter button:hover i.icon-hover {
+    display: inline-block;
+}
+
+.selected-side-filter i {
+    color: #0B57D0;
+}
+
+button.mail-compose-btn {
+    display: grid;
+    align-items: center;
+    place-content: center;
+    width: 10.375em;
+    height: 3.5em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: 2em;
+    border-radius: 1em;
+    background-color: var(--crl-mail-compose-btn);
+    font-family: 'roboto-medium';
+    transition: 200ms;
+}
+
+button.mail-compose-btn:hover {
+    background-color: var(--crl-mail-compose-btn);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 3px 0px, rgba(60, 64, 67, 0.15) 0px 4px 8px 3px;
+}
+
+button.selected-side-filter {
+    background-color: #d3e3fd;
+    font-family: 'roboto-bold';
+    font-weight: bold;
+}
+
+
+.selected-side-filter .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}

@@ -1,8 +1,7 @@
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 1em;
-    background: var(--bg1);
+    padding: 20px 0;
 }
 
 nav a {
@@ -13,4 +12,31 @@ nav a.active {
     color: var(--color1);
     font-weight: bold;
     text-decoration: overline;
+}
+
+header {
+    margin: 0;
+    background: rgba(230, 250, 255, 0.584);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-inline-end: 2em;
+}
+
+.logo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-inline-start: 2em;
+    cursor: pointer;
+
+}
+
+.logo img {
+    width: 4em;
 }

@@ -4,7 +4,10 @@ export function AppHeader() {
 
     return <header className="app-header">
         <Link to="/">
-            <h3>Appsus ✨</h3>
+            <div className="logo">
+                <img src="./assets/css/img/Gmail_logo.svg" alt="" />
+                <h2>Appsus</h2>
+            </div>
         </Link>
         <nav>
             <NavLink to="/">Home</NavLink>

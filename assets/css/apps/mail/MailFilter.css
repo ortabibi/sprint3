@@ -1,14 +1,20 @@
 .top-filter {
     display: grid;
+    grid-template-columns: var(--width-side-filter-mail) 1fr;
+    grid-template-rows: auto auto;
     align-items: center;
-    padding: 0.5em 1em;
-    background-color: white;
+    background-color: var(--crl-mail-bg);
+    height: 5.3em;
 }
 
 .search-bar-container {
-    display: flex;
+    grid-column: 1 /-1;
+    grid-row: 1;
     align-items: center;
-    gap: 1.5em;
+    display: flex;
+    gap: 3em;
+    width: 100%;
+    margin-bottom: 0.7em;
 }
 
 .gmail-logo {
@@ -69,30 +75,4 @@
 .date-btn img {
     width: 1.2em;
     height: 1.2em;
-}
-
-.read-tabs {
-    display: flex;
-    gap: 1em;
-    align-items: center;
-    background-color: white;
-    padding: 0 1em;
-}
-
-.read-tabs button {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    border: 0px;
-    background-color: white;
-    padding: 1em 0.5em;
-    cursor: pointer;
-    font-size: 1em;
-    color: var(--clr-mail-font-gray);
-    border-bottom: 3px solid transparent;
-}
-
-.read-tabs button.active {
-    border-bottom: 3px solid #0B57D0;
-    color: #0B57D0;
 }

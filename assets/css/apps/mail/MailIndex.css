@@ -1,1 +1,6 @@
- /* mail index  */
+.mail-index {
+    display: grid;
+    grid-template-columns: var(--width-side-filter-mail) 1fr;
+    grid-template-rows: auto 1fr;
+    margin-top: 1em;
+}
