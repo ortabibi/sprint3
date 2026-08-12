@@ -86,10 +86,12 @@ function trimObjOr(obj) {
 }
 // will need to change afte trimObjOr to trimObj
 function trimObj(obj) {
-    const trimmedObj = {}
-
+    const cleanedObj = {}
     for (const key in obj) {
-        if (obj[key]) trimmedObj[key] = obj[key]
+        
+        if (obj[key] !== '' && obj[key] !== null && obj[key] !== undefined) {
+            cleanedObj[key] = obj[key]
+        }
     }
-    return trimmedObj
+    return cleanedObj
 }

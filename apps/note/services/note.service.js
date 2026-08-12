@@ -27,11 +27,13 @@ function query(filterBy = {}) {
         .then(notes => {
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(note => {
-                    const txt = note.info.txt || ''
-                    const title = note.info.title || ''
+                notes = notes.filter(note => {const txt = note.info.txt || ''
+                     const title = note.info.title || ''
                     return regExp.test(txt) || regExp.test(title)
                 })
+            }
+            if(filterBy.type){
+                notes = notes.filter(note => note.type === filterBy.type )
             }
             return notes
         })
@@ -76,8 +78,11 @@ function getEmptyNote(txt = '') {
     }
 }
 
-function getDefaultFilter(filterBy = { txt: ''}) {
-    return { txt: filterBy.txt || '' }
+function getDefaultFilter(filterBy = { txt: '', type: '' }) {
+    return { 
+        txt: filterBy.txt || '', 
+        type: filterBy.type || '' 
+    }
 }
 
 function getFilterFromSearchParams(searchParams) {
