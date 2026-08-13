@@ -1,5 +1,5 @@
-export function ReadTabs({ isRead, onSetIsRead }) {
-    return <div className="read-tabs">
+export function ReadTabs({ isRead, onSetIsRead, hideTabs }) {
+    return <div className={`read-tabs ${hideTabs ? 'hide' : ''}`}>
         <button
             type="button"
             className={isRead === '' ? 'active' : ''}
