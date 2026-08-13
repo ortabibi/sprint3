@@ -8,7 +8,7 @@
 }
 
 .search-bar-container {
-    grid-column: 1 /-1;
+    grid-column: 1 / -1;
     grid-row: 1;
     align-items: center;
     display: flex;
@@ -32,17 +32,15 @@
 }
 
 .search-bar {
+    position: relative;
     display: flex;
     align-items: center;
-    flex: 1;
-    max-width: 45em;
-    background-color: var(--crl-mail-search-bar);
-    border-radius: 2em;
-    padding: 0.4em 1em;
-    gap: 0.8em;
+    width: clamp(20em, 50vw, 800em);
 }
 
 .search-btn {
+    position: absolute;
+    left: 1.2em;
     background: none;
     border: none;
     cursor: pointer;
@@ -55,16 +53,21 @@
     height: 1.2em;
 }
 
-.text-input {
-    flex: 1;
-    border: none;
-    background: transparent;
+.top-filter input {
+    border-radius: 5em;
+    border: 0px;
+    background-color: var(--crl-mail-search-bar);
+    height: 3.2em;
+    width: 100%;
+    padding-inline-start: 4em;
     outline: none;
     font-size: 1em;
     color: var(--clr-mail-font-black);
 }
 
 .date-btn {
+    position: absolute;
+    right: 1em;
     background: none;
     border: none;
     cursor: pointer;

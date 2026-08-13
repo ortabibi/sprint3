@@ -4,7 +4,7 @@ import { useEffectUpdate } from '../../../custom-hooks/useEffectUpdate.js'
 import { mailService } from '../services/mail.service.js'
 import { ReadTabs } from '../cmps/ReadTabs.jsx'
 
-export function MailFilter({ filterBy, onSetFilterBy }) {
+export function MailFilter({ filterBy, onSetFilterBy, hideTabs }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
 
     useEffectUpdate(() => {
@@ -44,6 +44,6 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
             </div>
         </form>
 
-        <ReadTabs isRead={filterByToEdit.isRead} onSetIsRead={setReadTab} />
+        <ReadTabs isRead={filterByToEdit.isRead} onSetIsRead={setReadTab} hideTabs={hideTabs} />
     </section>
 }
