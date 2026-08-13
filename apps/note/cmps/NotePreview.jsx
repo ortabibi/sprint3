@@ -1,12 +1,22 @@
 const { Link } = ReactRouterDOM
 
-import { LongTxt } from "../cmps/LongTxt.jsx"
+import { NoteTxt } from "../cmps/NoteTxt.jsx"
+import { NoteImg } from "../cmps/NoteImg.jsx"
+import { NoteVideo } from "../cmps/NoteVideo.jsx"
+import { NoteTodos } from "../cmps/NoteTodos.jsx"
 
 import { NoteToolsBar } from "../cmps/NoteToolsBar.jsx"
 
-export function NotePreview({ note, onRemoveNote, onUpdateNote,onCloseModal,onDuplicateNote }) {
-  const { info, style, isPinned } = note
+export function NotePreview({
+  note,
+  onRemoveNote,
+  onUpdateNote,
+  onCloseModal,
+  onDuplicateNote,
+}) {
+  const { info, style, isPinned, type } = note
   const { title, txt, url } = info
+
   return (
     <React.Fragment>
       <article
@@ -15,9 +25,8 @@ export function NotePreview({ note, onRemoveNote, onUpdateNote,onCloseModal,onDu
       >
         <Link to={`/note/${note.id}`} className="note-link"></Link>
 
-        {url && <img className="note-img" src={url} alt="Note media" />}
         {title && <div className="note-title">{title}</div>}
-        {txt && <LongTxt className="note-txt" txt={txt} />}
+        <DynamicCmp type={type} info={info} onUpdateNote={onUpdateNote} />
         {
           <NoteToolsBar
             note={note}
@@ -29,4 +38,14 @@ export function NotePreview({ note, onRemoveNote, onUpdateNote,onCloseModal,onDu
       </article>
     </React.Fragment>
   )
+}
+const CmpMap = {
+  NoteTxt,
+  NoteImg,
+  NoteVideo,
+  NoteTodos,
+}
+function DynamicCmp({ type, info, onUpdateNote }) {
+  const CmpToRender = CmpMap[type] || NoteTxt
+  return <CmpToRender info={info} onUpdateNote={onUpdateNote} />
 }
