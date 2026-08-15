@@ -8,11 +8,13 @@ import { MailList } from '../cmps/MailList.jsx'
 import { MailFilter } from '../cmps/MailFilter.jsx'
 import { useEffectUpdate } from '../../../custom-hooks/useEffectUpdate.js'
 import { MailFolderList } from '../cmps/MailFolderList.jsx'
+import { MailCompose } from '../cmps/MailCompose.jsx'
 
 
 
 export function MailIndex() {
     const [mails, setMails] = useState(null)
+    const [isComposeOpen, setIsComposeOpen] = useState(false)
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
@@ -36,6 +38,16 @@ export function MailIndex() {
         setFilterBy(prev => ({ ...prev, status }))
     }
 
+    function onOpenCompose() {
+        console.log('compose clicked')
+        setIsComposeOpen(true)
+    }
+
+    function onCloseCompose() {
+        setIsComposeOpen(false)
+    }
+
+
     if (!mails)
         return (
             <div className="loader">
@@ -49,14 +61,13 @@ export function MailIndex() {
             <React.Fragment>
                 <MailFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
 
-                {/* <Link to="/car/edit">
-                    <button>Add a Car</button>
-                </Link> */}
-
                 <MailList mails={mails} />
 
-                <MailFolderList filterByStatus={filterBy.status} onSetStatus={onSetStatus} />
+                <MailFolderList filterByStatus={filterBy.status} onSetStatus={onSetStatus}
+                    onOpenCompose={onOpenCompose} />
 
+                <MailCompose isComposeOpen={isComposeOpen} onCloseCompose={onCloseCompose} />
+                
             </React.Fragment>
         </div>
     )

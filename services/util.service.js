@@ -6,6 +6,7 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
+    formatMailDate,
     loadFromStorage,
     saveToStorage,
     trimObjOr,
@@ -74,6 +75,20 @@ function getMonthName(date) {
     return monthNames[date.getMonth()]
 }
 
+function formatMailDate(timestamp) {
+    if (!timestamp) return ''
+    const date = new Date(timestamp)
+    const now = new Date()
+
+    if (date.getFullYear() !== now.getFullYear()) {
+        return `${date.getMonth() + 1}/${date.getDate()}/${String(date.getFullYear()).slice(-2)}`
+    }
+
+    const month = utilService.getMonthName(date).slice(0, 3)
+    return `${month} ${date.getDate()}`
+}
+
+
 function trimObjOr(obj) {
     const trimmedObj = {}
 
@@ -88,7 +103,7 @@ function trimObjOr(obj) {
 function trimObj(obj) {
     const cleanedObj = {}
     for (const key in obj) {
-        
+
         if (obj[key] !== '' && obj[key] !== null && obj[key] !== undefined) {
             cleanedObj[key] = obj[key]
         }
