@@ -30,6 +30,10 @@ export function FilterOptions({ filterBy, onSetFilterBy,onSelectType,}) {
         <i className="fa-solid fa-pencil" aria-hidden="true" ></i>
         <span>Drawings</span>
     </div>
+     <div className="images-option"onClick={() => onSelectType('NoteCanvas')} >
+        <i className="fa-solid fa-paintbrush" aria-hidden="true" ></i>
+        <span>Canvas</span>
+    </div>
 </div>
 </div>
 

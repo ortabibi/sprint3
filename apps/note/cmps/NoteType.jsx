@@ -15,5 +15,9 @@ export function NoteType({ onSelectNoteType }) {
             <button type="button" onClick={() => onSelectNoteType('NoteTodos')}>
                 <i className="fa-regular fa-square-check" aria-hidden="true"></i>
             </button>
+            
+            <button type="button" onClick={() => onSelectNoteType('NoteTxt')}>
+                <i className="fa-solid fa-font" aria-hidden="true"></i>
+            </button>
     </div>
  }

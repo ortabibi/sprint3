@@ -1,4 +1,3 @@
-
 export function NoteImg({info}){
     const {url} = info
     return <div className="note-img-container">

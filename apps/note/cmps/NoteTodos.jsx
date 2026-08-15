@@ -1,12 +1,10 @@
 export function NoteTodos({ info, onUpdateNote }) {
     let { todos } = info
-    if (typeof todos === 'string') {
-    todos = todos.split(',').map(txt => ({ txt: txt.trim(), doneAt: null }))
-}
 if (!Array.isArray(todos)) todos = []
-    function toggleTodo(todoToToggle) {
-        const updatedTodos = todos.map(todo => {
-            if (todo.id === todoToToggle.id) {
+
+   function toggleTodo(targetIdx) {
+        const updatedTodos = todos.map((todo, idx) => {
+            if (idx === targetIdx) {
                 return {
                     ...todo,
                     doneAt: todo.doneAt ? null : Date.now()
@@ -14,6 +12,7 @@ if (!Array.isArray(todos)) todos = []
             }
             return todo
         })
+
         if (onUpdateNote) {
             onUpdateNote({
                 ...info,
@@ -28,7 +27,7 @@ if (!Array.isArray(todos)) todos = []
                     <li 
                         key={todo.id || idx} 
                         className={`todo-item ${todo.doneAt ? 'done' : ''}`}
-                        onClick={() => toggleTodo(todo)}
+                        onClick={() => toggleTodo(idx)}
                     >
                         <span>{todo.txt}</span>
                     </li>

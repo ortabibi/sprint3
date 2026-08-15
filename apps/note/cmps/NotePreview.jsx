@@ -4,6 +4,7 @@ import { NoteTxt } from "../cmps/NoteTxt.jsx"
 import { NoteImg } from "../cmps/NoteImg.jsx"
 import { NoteVideo } from "../cmps/NoteVideo.jsx"
 import { NoteTodos } from "../cmps/NoteTodos.jsx"
+import { NoteCanvas } from "../cmps/NoteCanvas.jsx"
 
 import { NoteToolsBar } from "../cmps/NoteToolsBar.jsx"
 
@@ -44,6 +45,7 @@ const CmpMap = {
   NoteImg,
   NoteVideo,
   NoteTodos,
+  NoteCanvas,
 }
 function DynamicCmp({ type, info, onUpdateNote }) {
   const CmpToRender = CmpMap[type] || NoteTxt
