@@ -4,3 +4,11 @@
     grid-template-rows: auto 1fr;
     margin-top: 1em;
 }
+
+.mail-index button {
+    cursor: pointer;
+}
+
+.mail-index input {
+    font-family: inherit;
+}
