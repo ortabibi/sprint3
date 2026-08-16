@@ -1,5 +1,6 @@
 const { useState } = React
 import { NoteType } from '../cmps/NoteType.jsx'
+// import { NoteCanvas } from '../cmps/NoteCanvas.jsx'
 
 export function NoteAdd({ onAddNote }) {
   const [newNote, setNewNote] = useState({ info: { title: "", txt: "",todos:[]},type: "NoteTxt" })
@@ -98,6 +99,15 @@ function getNoteType(noteType) {
     }
   }))
 }
+function onSaveCanvasDrawing(dataUrl) {
+  setNewNote((prevNote) => ({
+    ...prevNote,
+    info: {
+      ...prevNote.info,
+      url: dataUrl,
+    },
+  }))
+}
 
   return  <section className="note-add">
     <form onSubmit={onSaveNote}>
@@ -164,6 +174,9 @@ function getNoteType(noteType) {
     )}
   </div>
 )}
+{/* {newNote.type === 'NoteCanvas' && (
+  <NoteCanvas onSaveCanvas={onSaveCanvasDrawing} />
+)} */}
 
       <NoteType
       onSelectNoteType={onSelectNoteType}
