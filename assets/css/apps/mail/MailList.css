@@ -69,16 +69,16 @@ li.mail-li {
     display: none;
     align-items: center;
     justify-content: center;
-    gap: 0.5em;
     height: 2lh;
     position: absolute;
     right: 0.5em;
     top: 50%;
     transform: translateY(-50%);
-    background-color: white;
+    background-color: inherit;
 }
 
 .mail-li:hover .mail-icons {
+    z-index: 2;
     display: flex;
 }
 

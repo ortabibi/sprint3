@@ -13,7 +13,7 @@ _createMails()
 export const mailService = {
     query,
     get,
-    // remove,
+    remove,
     save,
     getEmptyMail,
     getDefaultFilter,
@@ -73,6 +73,10 @@ function save(mail) {
         mail.isRead = true
         return storageService.post(MAIL_KEY, mail)
     }
+}
+
+function remove(mailId) {
+    return storageService.remove(MAIL_KEY, mailId)
 }
 
 function _setNextPrevMailId(mail) {

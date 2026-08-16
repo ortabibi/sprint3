@@ -7,6 +7,7 @@
 
 .mail-index button {
     cursor: pointer;
+    font-family: inherit;
 }
 
 .mail-index input {

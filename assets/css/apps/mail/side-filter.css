@@ -29,26 +29,18 @@
     margin-inline-start: 2em;
 }
 
-.side-filter i {
-    width: 1.3em;
+.side-filter .material-symbols-outlined {
+    font-size: 1.3em;
     text-align: center;
     color: #202124;
 }
 
-.side-filter i.icon-hover {
-    display: none;
-}
-
-.side-filter button:hover i.icon-default {
-    display: none;
-}
-
-.side-filter button:hover i.icon-hover {
-    display: inline-block;
-}
-
-.selected-side-filter i {
-    color: #0B57D0;
+.selected-side-filter .material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
 }
 
 button.mail-compose-btn {
@@ -76,12 +68,4 @@ button.selected-side-filter {
     background-color: #d3e3fd;
     font-family: 'roboto-bold';
     font-weight: bold;
-}
-
-.selected-side-filter .material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 1,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
 }

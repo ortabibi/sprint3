@@ -47,6 +47,33 @@ export function MailIndex() {
         setIsComposeOpen(false)
     }
 
+    function onToggleStar(mail) {
+        const updatedMail = { ...mail, isStared: !mail.isStared }
+        setMails(prevMails => prevMails.map(m => m.id === updatedMail.id ? updatedMail : m))
+        mailService.save(updatedMail)
+    }
+
+    function onToggleRead(mail) {
+        const updatedMail = { ...mail, isRead: !mail.isRead }
+        setMails(prevMails => prevMails.map(m => m.id === updatedMail.id ? updatedMail : m))
+        mailService.save(updatedMail)
+    }
+
+    function onRemoveMail(mail) {
+        if (mail.removedAt) {
+            mailService.remove(mail.id)
+                .then(() => {
+                    setMails(prevMails => prevMails.filter(m => m.id !== mail.id))
+                })
+
+        } else {
+            const updatedMail = { ...mail, removedAt: Date.now() }
+            setMails(prevMails => prevMails.filter(m => m.id !== mail.id))
+            mailService.save(updatedMail).catch(err => console.error('Failed to trash mail:', err))
+
+        }
+    }
+
 
     if (!mails)
         return (
@@ -61,13 +88,13 @@ export function MailIndex() {
             <React.Fragment>
                 <MailFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
 
-                <MailList mails={mails} />
+                <MailList mails={mails} onToggleStar={onToggleStar} onToggleRead={onToggleRead} onRemoveMail={onRemoveMail} />
 
                 <MailFolderList filterByStatus={filterBy.status} onSetStatus={onSetStatus}
                     onOpenCompose={onOpenCompose} />
 
                 <MailCompose isComposeOpen={isComposeOpen} onCloseCompose={onCloseCompose} />
-                
+
             </React.Fragment>
         </div>
     )
