@@ -5,7 +5,7 @@ export function FilterOptions({ filterBy, onSetFilterBy,onSelectType,}) {
     
     return <section className="filter-options">
     <div className="filter-options-header">
-    <span>type</span>
+    <span>Types</span>
    <button type="button" className="clear-filter-btn" onClick={() => onSelectType('')}>
   Clear
 </button>
@@ -28,7 +28,7 @@ export function FilterOptions({ filterBy, onSetFilterBy,onSelectType,}) {
 
     <div className="videos-option" onClick={() => onSelectType('NoteTxt')}>
         <i className="fa-solid fa-pencil" aria-hidden="true" ></i>
-        <span>Drawings</span>
+        <span>Texts</span>
     </div>
      <div className="images-option"onClick={() => onSelectType('NoteCanvas')} >
         <i className="fa-solid fa-paintbrush" aria-hidden="true" ></i>
