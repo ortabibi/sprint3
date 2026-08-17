@@ -1,5 +1,62 @@
-.mail-icons img {
-    width: 1.2em;
+.mail-icons .material-symbols-outlined {
+    font-size: 1.2em;
+}
+
+.mail-icons button {
+    background-color: inherit;
+    border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 2em;
+    cursor: pointer;
+}
+
+.mail-icons button:hover {
+    background-color: #e6eaef;
+}
+
+.mail-icons button.read {
+    background-color: white;
+}
+
+.mail-icons button.read:hover {
+    background-color: #e6eaef;
+}
+
+
+.mail-li.read .mail-icons button.read {
+    background-color: var(--crl-mail-bg);
+}
+
+.mail-li.read .mail-icons button.read:hover {
+    background-color: #e6eaef;
+}
+
+.star-btn {
+    position: absolute;
+    left: 0.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    border: 0px;
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
+    color: #9aa0a6;
+    transition: 200ms;
+}
+
+.star-btn.stared {
+    color: #f4b400;
+    font-variation-settings: 'FILL' 1;
+}
+
+.star-btn:hover {
+    background-color: #E6EAEF;
 }
 
 .mail-preview.read {
@@ -13,9 +70,13 @@
     align-items: center;
     border-bottom: 1px rgba(100, 121, 143, 0.12) solid;
     box-shadow: rgba(100, 121, 143, 0.12) 0px -1px 0px 0px inset;
-    padding-inline-start: 1em;
+    padding-inline-start: 0.5em;
     cursor: pointer;
 }
+
+/* .mail-preview:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
 
 
 
