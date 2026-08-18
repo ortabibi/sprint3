@@ -25,3 +25,6 @@
 @import './apps/note/NoteIndex.css';
 @import './apps/note/NoteIndex.css';
 @import './apps/note/NoteIndex.css';
+
+@import './setup/mq.css';
+

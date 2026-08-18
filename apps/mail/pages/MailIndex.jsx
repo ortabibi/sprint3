@@ -15,6 +15,7 @@ import { MailCompose } from '../cmps/MailCompose.jsx'
 export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [isComposeOpen, setIsComposeOpen] = useState(false)
+    const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [filterBy, setFilterBy] = useState(mailService.getFilterFromSearchParams(searchParams))
@@ -74,6 +75,14 @@ export function MailIndex() {
         }
     }
 
+    function toggleSideMenu() {
+        setIsSideMenuOpen(prev => !prev)
+    }
+
+    function closeSideMenu() {
+        setIsSideMenuOpen(false)
+    }
+
 
     if (!mails)
         return (
@@ -86,13 +95,13 @@ export function MailIndex() {
     return (
         <div className="mail-index">
             <React.Fragment>
-                <MailFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
+                <MailFilter filterBy={filterBy} onSetFilterBy={setFilterBy} onToggleSideMenu={toggleSideMenu} />
 
                 <MailList mails={mails} onToggleStar={onToggleStar} onToggleRead={onToggleRead} onRemoveMail={onRemoveMail} />
 
                 <MailFolderList filterByStatus={filterBy.status} onSetStatus={onSetStatus}
-                    onOpenCompose={onOpenCompose} />
-
+                    onOpenCompose={onOpenCompose} isSideMenuOpen={isSideMenuOpen} onCloseSideMenu={closeSideMenu} />
+                    
                 <MailCompose isComposeOpen={isComposeOpen} onCloseCompose={onCloseCompose} />
 
             </React.Fragment>
