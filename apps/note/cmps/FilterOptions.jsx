@@ -10,26 +10,26 @@ export function FilterOptions({ filterBy, onSetFilterBy,onSelectType,}) {
 
     <div className="option-types">
         
-    <div className="option-card"onClick={() => onSelectType('NoteImg')} >
+    <div className={`option-card ${filterBy && filterBy.type === 'NoteImg' ? 'active' : ''}`} onClick={() => onSelectType('NoteImg')} >
         <i className="fa-regular fa-image" aria-hidden="true" ></i>
         <span>Images</span>
     </div>
 
-    <div className="option-card" onClick={() => onSelectType('NoteVideo')}>
+    <div className={`option-card ${filterBy && filterBy.type === 'NoteVideo' ? 'active' : ''}`} onClick={() => onSelectType('NoteVideo')}>
         <i className="fa-brands fa-youtube" aria-hidden="true"></i>
         <span>Videos</span>
     </div>
 
-    <div className="option-card" onClick={() => onSelectType('NoteTodos')}>
+    <div className={`option-card ${filterBy && filterBy.type === 'NoteTodos' ? 'active' : ''}`} onClick={() => onSelectType('NoteTodos')}>
         <i className="fa-regular fa-square-check" aria-hidden="true"></i>
         <span>Todos</span>
     </div>
 
-    <div className="option-card" onClick={() => onSelectType('NoteTxt')}>
+    <div className={`option-card ${filterBy && filterBy.type === 'NoteTxt' ? 'active' : ''}`}onClick={() => onSelectType('NoteTxt')}>
         <i className="fa-solid fa-pencil" aria-hidden="true" ></i>
         <span>Texts</span>
     </div>
-     <div className="option-card "onClick={() => onSelectType('NoteCanvas')} >
+     <div className={`option-card ${filterBy && filterBy.type === 'NoteCanvas' ? 'active' : ''}`}onClick={() => onSelectType('NoteCanvas')} >
         <i className="fa-solid fa-paintbrush" aria-hidden="true" ></i>
         <span>Canvas</span>
     </div>
