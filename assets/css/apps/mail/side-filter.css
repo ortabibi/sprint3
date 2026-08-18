@@ -51,7 +51,6 @@ button.mail-compose-btn {
     height: 3.5em;
     margin-left: 1em;
     margin-bottom: 1em;
-    margin-top: 1em;
     padding: 2em;
     border-radius: 1em;
     background-color: var(--crl-mail-compose-btn);
@@ -68,4 +67,8 @@ button.selected-side-filter {
     background-color: #d3e3fd;
     font-family: 'roboto-bold';
     font-weight: bold;
+}
+
+.mail-compose-btn .material-symbols-outlined {
+    margin-inline-start: 0;
 }
