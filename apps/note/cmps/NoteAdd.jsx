@@ -1,11 +1,13 @@
 const { useState } = React
 import { NoteType } from '../cmps/NoteType.jsx'
-// import { NoteCanvas } from '../cmps/NoteCanvas.jsx'
+import { NoteCanvas } from '../cmps/NoteCanvas.jsx'
+
 
 export function NoteAdd({ onAddNote }) {
   const [newNote, setNewNote] = useState({ info: { title: "", txt: "",todos:[]},type: "NoteTxt" })
 const { propName, placeholder } = getNoteType(newNote.type)
 const [todoInput, setTodoInput] = useState('')
+const [isExpand,setToExpend] = useState(false)
 
   function handleChange({ target }) {
     const { name, value } = target
@@ -111,32 +113,34 @@ function onSaveCanvasDrawing(dataUrl) {
 
   return  <section className="note-add">
     <form onSubmit={onSaveNote}>
+       
       <input
-        type="text"
-        name="title"
-        placeholder="Title"
-        value={newNote.info.title || ''}
-        onChange={handleChange}
+      type="text"
+      name="title"
+      placeholder="Title"
+      value={newNote.info.title || ''}
+      onChange={handleChange}
       />
     
       <input
-        type="text"
+      type="text"
         name="txt"
         placeholder="New note.."
         value={newNote.info.txt || ''}
         onChange={handleChange}
-      />
+        />
     {(newNote.type === 'NoteImg' ||
-          newNote.type === 'NoteVideo' ||
-          newNote.type === 'NoteCanvas') && (
-          <input
-            type="text"
-            name={propName}
-            placeholder={placeholder}
-            value={newNote.info[propName] || ''}
-            onChange={handleChange}
-          />
-        )}
+      newNote.type === 'NoteVideo' ||
+      newNote.type === 'NoteCanvas') && (
+        <input
+        type="text"
+        name={propName}
+        placeholder={placeholder}
+        value={newNote.info[propName] || ''}
+        onChange={handleChange}
+        />
+      )}
+
    {newNote.type === 'NoteTodos' && (
   <div className="todos-input-container">
     <div className="todos-input-group">
@@ -174,9 +178,10 @@ function onSaveCanvasDrawing(dataUrl) {
     )}
   </div>
 )}
-{/* {newNote.type === 'NoteCanvas' && (
+
+{newNote.type === 'NoteCanvas' && (
   <NoteCanvas onSaveCanvas={onSaveCanvasDrawing} />
-)} */}
+)}
 
       <NoteType
       onSelectNoteType={onSelectNoteType}
@@ -185,4 +190,5 @@ function onSaveCanvasDrawing(dataUrl) {
     </form>
   </section>
 }
+
 //{text} todo, img, canvas,video,
