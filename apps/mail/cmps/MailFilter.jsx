@@ -27,7 +27,7 @@ export function MailFilter({ filterBy, onSetFilterBy, hideTabs }) {
             </div>
             <div className="search-bar">
                 <button type="button" className="search-btn">
-                    <i className="fa fa-search"></i>
+                    <span className="material-symbols-outlined">search</span>
                 </button>
                 <input
                     onChange={handleChange}
@@ -39,7 +39,7 @@ export function MailFilter({ filterBy, onSetFilterBy, hideTabs }) {
                     id="txt"
                 />
                 <button type="button" className="date-btn">
-                    <img src="./assets/css/img/calendar.png" alt="date" />
+                    <span className="material-symbols-outlined">event</span>
                 </button>
             </div>
         </form>

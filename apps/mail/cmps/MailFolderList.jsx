@@ -11,7 +11,7 @@ export function MailFolderList({ filterByStatus, onSetStatus, onOpenCompose }) {
             onClick={() => onSetStatus('inbox')}>
             <section>
                 <span className="material-symbols-outlined">inbox</span>
-                <span>inbox</span>
+                <span>Inbox</span>
             </section>
             <span>12</span>
         </button>
@@ -19,21 +19,21 @@ export function MailFolderList({ filterByStatus, onSetStatus, onOpenCompose }) {
             onClick={() => onSetStatus('starred')}>
             <section>
                 <span className="material-symbols-outlined">star</span>
-                <span>starred</span>
+                <span>Starred</span>
             </section>
         </button>
         <button className={filterByStatus === 'sent' ? 'selected-side-filter' : ''}
             onClick={() => onSetStatus('sent')}>
             <section>
                 <span className="material-symbols-outlined">send</span>
-                <span>sent</span>
+                <span>Sent</span>
             </section>
         </button>
         <button className={filterByStatus === 'drafts' ? 'selected-side-filter' : ''}
             onClick={() => onSetStatus('drafts')}>
             <section>
                 <span className="material-symbols-outlined">draft</span>
-                <span>drafts</span>
+                <span>Drafts</span>
             </section>
         </button>
         <button className={filterByStatus === 'trash' ? 'selected-side-filter' : ''}

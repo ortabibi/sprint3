@@ -5,6 +5,9 @@
     align-items: center;
     background-color: var(--crl-mail-bg);
     height: 5.3em;
+    font-size: 13.333px;
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .search-bar-container {
@@ -20,8 +23,9 @@
 .gmail-logo {
     display: flex;
     align-items: center;
-    width: 2.5em;
-    height: 2.5em;
+    justify-self: left;
+    width: 48px;
+    height: 35.82px;
     flex-shrink: 0;
 }
 
@@ -35,10 +39,10 @@
     position: relative;
     display: flex;
     align-items: center;
-    width: clamp(20em, 50vw, 800em);
+    width: clamp(20em, 45vw, 45em);
 }
 
-.search-btn {
+/* .search-btn {
     position: absolute;
     left: 1.2em;
     background: none;
@@ -46,11 +50,27 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+} */
+
+.search-bar-container .search-btn {
+    position: absolute;
+    left: 1.2em;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: inherit;
+    z-index: 2;
+    border: 0px;
+    border-radius: 50%;
+    width: 2.2em;
+    height: 2.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
-.search-btn img {
-    width: 1.2em;
-    height: 1.2em;
+.search-bar-container button:hover {
+    background-color: var(--crl-mail-search-icon);
 }
 
 .top-filter input {
@@ -73,6 +93,10 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
 }
 
 .date-btn img {
