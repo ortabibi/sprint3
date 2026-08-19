@@ -23,7 +23,7 @@ ul.mail-list {
 
 li.mail-li {
     display: grid;
-    grid-template-columns: 20px 0.8em 7fr 2em 1fr;
+    grid-template-columns: 20px 0.8em 7fr 2em 0.5fr;
     align-items: center;
     align-content: center;
     min-height: 3em;

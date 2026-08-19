@@ -64,7 +64,7 @@
 
 .mail-preview {
     display: grid;
-    grid-template-columns: 12em 1em 9fr 1em 1fr;
+    grid-template-columns: 12em 1em 9fr 1em 0.1fr;
     justify-content: space-between;
     align-items: center;
     padding-inline-start: 0.5em;

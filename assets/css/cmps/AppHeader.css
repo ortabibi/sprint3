@@ -40,3 +40,20 @@ nav {
 .logo img {
     width: 4em;
 }
+
+.material-symbols-outlined.hide {
+    display: none;
+}
+
+.apps-icon {
+    display: flex;
+    align-self: center;
+    margin-inline-end: 2em;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0.2em;
+}
+
+.apps-icon:hover {
+    background-color: var(--crl-mail-search-icon);
+}
