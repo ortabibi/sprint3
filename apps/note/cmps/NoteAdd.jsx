@@ -1,13 +1,12 @@
 const { useState } = React
-import { NoteType } from '../cmps/NoteType.jsx'
-import { NoteCanvas } from '../cmps/NoteCanvas.jsx'
-
+import { NoteType } from './NoteType.jsx'
+import { NoteCanvas } from './NoteCanvas.jsx'
 
 export function NoteAdd({ onAddNote }) {
   const [newNote, setNewNote] = useState({ info: { title: "", txt: "",todos:[]},type: "NoteTxt" })
 const { propName, placeholder } = getNoteType(newNote.type)
 const [todoInput, setTodoInput] = useState('')
-const [isExpand,setToExpend] = useState(false)
+const [isExpand,setIsExpand] = useState(false)
 
   function handleChange({ target }) {
     const { name, value } = target
@@ -22,6 +21,7 @@ const [isExpand,setToExpend] = useState(false)
     onAddNote(newNote)
     setNewNote({ info: { title: "", txt: "",todos: [] } ,type: "NoteTxt"})
   setTodoInput('')
+  setIsExpand(false)
   }
 function getNoteType(noteType) {
     switch (noteType) {
@@ -58,6 +58,7 @@ function getNoteType(noteType) {
     }
 }
  function onSelectNoteType(type) {
+  setIsExpand(true)
   setNewNote(prevNote => ({
     ...prevNote,
     type,
@@ -112,8 +113,11 @@ function onSaveCanvasDrawing(dataUrl) {
 }
 
   return  <section className="note-add">
-    <form onSubmit={onSaveNote}>
-       
+    <form onSubmit={onSaveNote} className="note-card">
+
+       <div className="note-inputs-box">
+        {isExpand &&
+        <div className="title-row">
       <input
       type="text"
       name="title"
@@ -121,14 +125,20 @@ function onSaveCanvasDrawing(dataUrl) {
       value={newNote.info.title || ''}
       onChange={handleChange}
       />
-    
+    </div>
+
+    }
       <input
       type="text"
         name="txt"
         placeholder="New note.."
         value={newNote.info.txt || ''}
         onChange={handleChange}
+        onClick={() => setIsExpand(true)}
         />
+{isExpand && (
+  <React.Fragment>
+
     {(newNote.type === 'NoteImg' ||
       newNote.type === 'NoteVideo' ||
       newNote.type === 'NoteCanvas') && (
@@ -182,12 +192,23 @@ function onSaveCanvasDrawing(dataUrl) {
 {newNote.type === 'NoteCanvas' && (
   <NoteCanvas onSaveCanvas={onSaveCanvasDrawing} />
 )}
+</React.Fragment>
+)}
+</div>
 
+<div className="note-card-actions">
       <NoteType
       onSelectNoteType={onSelectNoteType}
+      selectedType={newNote.type}
       />
-      <button type="submit">Save</button>
+      {isExpand &&(
+
+        <button type="submit" className="save-btn">Save</button>
+      )
+}
+  </div>
     </form>
+
   </section>
 }
 

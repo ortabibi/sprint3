@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+const { useRef, useEffect } = React
 
 export function NoteCanvas(props) {
   const canvasRef = useRef(null);

@@ -1,0 +1,92 @@
+.note-preview {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    border-radius: 8px;
+    padding: 16px;
+    gap: 12px;
+
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+  
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.note-preview:hover {
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+  border-color: transparent;
+}
+.note-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.note-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #202124;
+  word-break: break-word;
+  line-height: 1.4;
+}
+.note-txt {
+  font-size: 0.875rem;
+  color: #3c4043;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.note-img img,
+.note-canvas canvas,
+.note-preview img {
+    display: block;
+    object-fit: cover;
+  width: calc(100% + 32px);
+  margin: -16px -16px 0 -16px;display: block;
+  max-height: 300px;
+}
+.note-video iframe {
+    display: block;
+  width: calc(100% + 32px);
+  margin: -16px -16px 0 -16px;
+  height: 200px;
+  border: none;
+}
+.note-todos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.note-todo-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: #3c4043;
+  position: relative;
+  z-index: 2;
+}
+.note-todo-item.done span {
+  text-decoration: line-through;
+  color: #80868b;
+}
+.note-tools-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  margin-top: auto;
+  padding-top: 8px;
+}
+.note-preview:hover .note-tools-bar {
+  opacity: 1;
+}

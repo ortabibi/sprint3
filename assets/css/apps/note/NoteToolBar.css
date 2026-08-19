@@ -1,0 +1,68 @@
+.note-tools-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 8px;
+  position: relative;
+  z-index: 2
+}
+.note-tools-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+  background: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  
+  width: 32px;
+  height: 32px;
+  font-size: 0.9rem;
+  
+  color: #5f6368;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.note-tools-btn:hover {
+  background-color: rgba(60, 64, 67, 0.08);
+  color: #202124;
+}
+.pin-btn {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  color: #5f6368;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.pin-btn:hover {
+  background-color: rgba(60, 64, 67, 0.08);
+}
+
+.pin-btn.pinned {
+  color: #202124;
+}
+.note-label {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: rgba(60, 64, 67, 0.08);
+  color: #3c4043;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-top: 4px;
+}

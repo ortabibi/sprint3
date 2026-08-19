@@ -26,6 +26,12 @@ export function NotePreview({
       >
         <Link to={`/note/${note.id}`} className="note-link"></Link>
 
+        <button
+          className={`pin-btn ${isPinned ? "pinned" : ""}`}
+          onClick={() => onUpdateNote({ ...note, isPinned: !isPinned })}
+        >
+          <i className="fa-solid fa-thumbtack"></i>
+        </button>
         {title && <div className="note-title">{title}</div>}
         <DynamicCmp type={type} info={info} onUpdateNote={onUpdateNote} />
         {

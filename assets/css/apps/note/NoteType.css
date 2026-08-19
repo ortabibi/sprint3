@@ -1,0 +1,28 @@
+.action-note-type {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.action-note-type button {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #5f6368;
+  font-size: 1.25rem;
+
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.action-note-type button:hover {
+  color: #202124;
+  background-color: rgba(60, 64, 67, 0.08);
+}
+.action-note-type button:focus {
+  outline: none;
+}

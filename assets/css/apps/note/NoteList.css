@@ -1,1 +1,30 @@
  /* note list */
+ .note-list-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 16px;
+  
+}
+.pinned-notes-section h3,
+.other-notes-section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: #5f6368;
+  margin: 24px 0 12px 10px;
+  text-transform: uppercase;
+}
+.note-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  column-count: 4;
+  column-gap: 16px;
+}
+.note-li {
+    display: block;
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
