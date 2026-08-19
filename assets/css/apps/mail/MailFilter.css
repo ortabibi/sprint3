@@ -4,11 +4,9 @@
     grid-template-rows: auto auto;
     align-items: center;
     background-color: var(--crl-mail-bg);
-    height: 5.3em;
     font-size: 13.333px;
-    grid-column: 2;
-    grid-row: 1;
 }
+
 
 .search-bar-container {
     grid-column: 1 / -1;

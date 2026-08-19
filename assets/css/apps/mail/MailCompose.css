@@ -2,6 +2,10 @@
     display: none;
 }
 
+.material-symbols-outlined.hide {
+    display: none;
+}
+
 .mail-compose-container {
     position: fixed;
     bottom: 0;

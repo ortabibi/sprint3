@@ -4,7 +4,7 @@ import { useEffectUpdate } from '../../../custom-hooks/useEffectUpdate.js'
 import { mailService } from '../services/mail.service.js'
 import { ReadTabs } from '../cmps/ReadTabs.jsx'
 
-export function MailFilter({ filterBy, onSetFilterBy, hideTabs }) {
+export function MailFilter({ filterBy, onSetFilterBy, hideTabs, onToggleSideMenu }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
 
     useEffectUpdate(() => {
@@ -23,6 +23,7 @@ export function MailFilter({ filterBy, onSetFilterBy, hideTabs }) {
     return <section className="top-filter">
         <form className="search-bar-container" onSubmit={ev => ev.preventDefault()}>
             <div className="gmail-logo menu-gmail">
+                <span className="material-symbols-outlined side-menu-btn hide" onClick={onToggleSideMenu}>menu</span>
                 <img src="./assets/css/img/Gmail_logo.svg" alt="Gmail" />
             </div>
             <div className="search-bar">

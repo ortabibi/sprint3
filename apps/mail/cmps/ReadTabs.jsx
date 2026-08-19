@@ -5,21 +5,24 @@ export function ReadTabs({ isRead, onSetIsRead, hideTabs }) {
             className={isRead === '' ? 'active' : ''}
             onClick={() => onSetIsRead('')}
         >
-            Primary
+            <span className="material-symbols-outlined">inbox</span>
+            <span>Primary</span>
         </button>
         <button
             type="button"
             className={isRead === false ? 'active' : ''}
             onClick={() => onSetIsRead(false)}
         >
-            Unread
+            <span className="material-symbols-outlined">mail</span>
+            <span>Unread</span>
         </button>
         <button
             type="button"
             className={isRead === true ? 'active' : ''}
             onClick={() => onSetIsRead(true)}
         >
-            Read
+            <span className="material-symbols-outlined">drafts</span>
+            <span>Read</span>
         </button>
     </div>
 }
