@@ -18,7 +18,7 @@ export function AppHeader() {
     return <header className="app-header">
         <Link to="/">
             <div className="logo">
-                <img src="./assets/css/img/Gmail_logo.svg" alt="" />
+                <img src="assets\css\img\Gemini_Generated_Image_zg7syyzg7syyzg7s.jpg" alt="" />
                 <h2>Appsus</h2>
             </div>
         </Link>
