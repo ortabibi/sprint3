@@ -8,6 +8,10 @@ nav a {
     margin: .5em;
 }
 
+.nav-word {
+    font-size: 1.2rem; 
+}
+
 nav a.active {
     color: var(--color1);
     font-weight: bold;
