@@ -3,9 +3,9 @@
 @import "./basics/helpers.css";
 @import "./basics/layout.css";
 
-@import './cmps/home.css';
-@import './cmps/UserMsg.css';
-@import './cmps/AppHeader.css';
+@import "./cmps/home.css";
+@import "./cmps/UserMsg.css";
+@import "./cmps/AppHeader.css";
 
 @import "./apps/mail/MailIndex.css";
 @import "./apps/mail/MailPreview.css";
@@ -17,11 +17,19 @@
 @import "./apps/mail/MailDetails.css";
 @import "./apps/mail/MailCompose.css";
 
-@import './apps/note/NoteIndex.css';
-@import './apps/note/NoteFilter.css';
-@import './apps/note/NoteFilterOptions.css';
+@import "./apps/note/NoteIndex.css";
+@import "./apps/note/NoteFilter.css";
+@import "./apps/note/NoteFilterOptions.css";
+@import "./apps/note/NoteAdd.css";
+@import "./apps/note/NoteType.css";
+@import "./apps/note/NoteList.css";
+@import "./apps/note/NotePreview.css";
+@import "./apps/note/NoteToolBar.css";
 
 
-@import './apps/note/NoteIndex.css';
-@import './apps/note/NoteIndex.css';
-@import './apps/note/NoteIndex.css';
+
+/*
+@import "./apps/note/NoteEditModal.css";
+@import "./apps/note/longText.css";
+@import "./apps/note/NoteMq.css"; */
+
