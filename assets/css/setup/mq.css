@@ -211,4 +211,40 @@
     .mail-date {
         font-size: 0.8em;
     }
+
+    /* About Page */
+    .team-lead {
+        flex-direction: column;
+        margin: auto;
+        padding: 2.7em;
+    }
+
+    .team-member {
+        width: 20em;
+    }
+
+    .team-member hr {
+        width: 15em;
+    }
+}
+
+@media (min-width: 601px) {
+    .team-lead {
+        flex-direction: row;
+        padding: 1em;
+    }
+
+    .team-member {
+        width: 26em;
+    }
+
+    .team-member hr {
+        width: 18em;
+    }
+
+    .team-member ul {
+        margin: 0;
+        margin-inline-start: 1.5em;
+        margin-block-start: 1em;
+    }
 }
