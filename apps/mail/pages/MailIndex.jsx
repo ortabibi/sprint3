@@ -101,7 +101,7 @@ export function MailIndex() {
 
                 <MailFolderList filterByStatus={filterBy.status} onSetStatus={onSetStatus}
                     onOpenCompose={onOpenCompose} isSideMenuOpen={isSideMenuOpen} onCloseSideMenu={closeSideMenu} />
-                    
+
                 <MailCompose isComposeOpen={isComposeOpen} onCloseCompose={onCloseCompose} />
 
             </React.Fragment>

@@ -22,7 +22,6 @@ export const mailService = {
 
 
 function query(filterBy = {}) {
-    console.log(filterBy);
 
     return storageService.query(MAIL_KEY)
         .then(mails => {
@@ -154,7 +153,6 @@ function _createMails() {
 
         utilService.saveToStorage(MAIL_KEY, mails)
     }
-    console.log('mails', mails)
 }
 
 function getFilterFromSearchParams(searchParams) {
@@ -162,7 +160,7 @@ function getFilterFromSearchParams(searchParams) {
     const filterBy = {}
 
     for (const field in defaultFilter) {
-        filterBy[field] = searchParams.get(field) || ''
+        filterBy[field] = searchParams.get(field) || defaultFilter[field]
     }
     return filterBy
 }
@@ -170,7 +168,7 @@ function getFilterFromSearchParams(searchParams) {
 
 function getDefaultFilter() {
     return {
-        status: '',
+        status: 'inbox',
         txt: '',
         isRead: '',
         isStared: '',
