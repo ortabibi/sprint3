@@ -7,6 +7,7 @@ export function NoteAdd({ onAddNote }) {
   const [newNote, setNewNote] = useState({
     info: { title: '', txt: '', todos: [] },
     type: 'NoteTxt',
+    isPinned: false,
     style: { backgroundColor: '#ffffff' }
   })
   const [todoInput, setTodoInput] = useState('')
@@ -36,6 +37,7 @@ export function NoteAdd({ onAddNote }) {
     setNewNote({
       info: { title: '', txt: '', todos: [] },
       type: 'NoteTxt',
+      isPinned: false,
       style: { backgroundColor: '#ffffff' }
     })
     setTodoInput('')
@@ -116,6 +118,12 @@ export function NoteAdd({ onAddNote }) {
       },
     }))
   }
+  function onTogglePin() {
+  setNewNote((prevNote) => ({
+    ...prevNote,
+    isPinned: !prevNote.isPinned,
+  }))
+}
 
   return (
     <section className="note-add">
@@ -124,6 +132,16 @@ export function NoteAdd({ onAddNote }) {
         className="note-card"
         style={{ backgroundColor: (newNote.style && newNote.style.backgroundColor) || '#ffffff' }}
       >
+        {isExpand && (
+    <button
+      type="button"
+      className={`pin-btn ${newNote.isPinned ? 'pinned' : ''}`}
+      onClick={onTogglePin}
+      title={newNote.isPinned ? 'Unpin note' : 'Pin note'}
+    >
+      <i className="fa-solid fa-thumbtack"></i>
+    </button>
+  )}
         <div className="note-inputs-box">
           {isExpand && (
             <div className="title-row">
