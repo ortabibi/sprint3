@@ -35,6 +35,15 @@ export function NoteEditModal({ note, onUpdateNote, onCloseModal }) {
     if (ev) ev.preventDefault()
     onUpdateNote(editedNote)
   }
+  function onRemoveTodo(idxToRemove) {
+  setEditedNote((prev) => ({
+    ...prev,
+    info: {
+      ...prev.info,
+      todos: prev.info.todos.filter((_, idx) => idx !== idxToRemove),
+    },
+  }))
+}
 
   const { type, info, style = {} } = editedNote
 
@@ -78,17 +87,25 @@ export function NoteEditModal({ note, onUpdateNote, onCloseModal }) {
         )}
 
         {type === "NoteTodos" && Array.isArray(info.todos) && (
-          <div className="todos-edit-list">
-            {info.todos.map((todo, idx) => (
-              <input
-                key={idx}
-                type="text"
-                value={todo.txt}
-                onChange={(ev) => handleTodoChange(idx, ev.target.value)}
-              />
-            ))}
-          </div>
-        )}
+  <div className="todos-edit-list">
+    {info.todos.map((todo, idx) => (
+      <div key={idx} className="todo-edit-row">
+        <input
+          type="text"
+          value={todo.txt}
+          onChange={(ev) => handleTodoChange(idx, ev.target.value)}
+        />
+        <button
+          type="button"
+          className="remove-todo-btn"
+          onClick={() => onRemoveTodo(idx)}
+        >
+          <i className="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    ))}
+  </div>
+)}
 
        <div className="modal-footer">
           <NoteColor
