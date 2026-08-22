@@ -1,0 +1,12 @@
+.long-txt {
+  width: 100%;
+}
+
+.long-txt .txt {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #3c4043;
+  word-break: break-word;
+  white-space: pre-wrap;
+}

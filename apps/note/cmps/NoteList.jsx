@@ -1,6 +1,6 @@
 const { Link } = ReactRouterDOM
 import { NotePreview } from '../cmps/NotePreview.jsx'
-export function NoteList({ notes, onRemoveNote, onUpdateNote, onDuplicateNote }) {
+export function NoteList({ notes, onRemoveNote, onUpdateNote, onDuplicateNote,onSelectNote }) {
     const pinnedNotes = notes.filter((note) => note.isPinned)
     const otherNotes = notes.filter((note) => !note.isPinned)
     const hasPinned = pinnedNotes.length > 0
@@ -15,6 +15,7 @@ export function NoteList({ notes, onRemoveNote, onUpdateNote, onDuplicateNote })
               onRemoveNote={onRemoveNote}
               onUpdateNote={onUpdateNote}
               onDuplicateNote={onDuplicateNote}
+              onSelectNote={onSelectNote}
             />
           </li>
         ))}
